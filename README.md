@@ -15,7 +15,8 @@ Built a centralized logging and monitoring architecture in AWS using **CloudTrai
   - [1. CloudTrail Setup & Log Delivery]  
   - [2. CloudWatch Alarms for Critical Events]  
   - [3. Athena Threat-Hunting Queries]  
-  - [4. Visualization with QuickSight]  
+  - [4. Visualization with QuickSight]
+  - [5. Cleanup]  
 - [Screenshots](#screenshots)  
 - [Lessons Learned](#lessons-learned)  
 - [References](#references)  
@@ -80,6 +81,13 @@ Flow: CloudTrail Logs → S3 → CloudWatch Alarms (real-time detection) → Ath
    - Created table and bar chart visuals for event analytics.  
    - Published dashboard `Security Analytics Dashboard` *(Screenshot: `QuickSight-EventCounts.png`)*  
 
+- **5. Cleanup**  
+   - Deleted CloudWatch Alarms and SNS topic to stop notifications.  
+   - Removed Athena table and database to avoid unnecessary storage costs.  
+   - Deleted S3 bucket used for CloudTrail logs (after verifying no other trails depended on it).  
+   - Disabled or deleted the CloudTrail trail created for the lab.  
+   - Removed QuickSight dataset and analysis to free up SPICE capacity.
+     
 ---
 
 ## Screenshots
