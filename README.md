@@ -1,4 +1,4 @@
-# AWS CSS - Domain 2 - Centralized Security Monitoring with CloudTrail + CloudWatch + Athena + QuickSight.
+# AWS CSS - Domain 2 - Centralized Security Monitoring with CloudTrail, CloudWatch, Athena & QuickSight.
 
 Built a centralized logging and monitoring architecture in AWS using **CloudTrail, CloudWatch, Athena and QuickSight** to detect suspicious API activity such as root account usage, API calls without MFA and attempts to disable logging.
 
